@@ -24,7 +24,6 @@ userInput.addEventListener("focus",function(){userInput.value=''}); //Lamda func
 
 function pickRandomNum() {
   computer_n = Math.floor(Math.random() * 100) + 1;
-  chances = 5;
   // 랜덤한 숫자를 뽑아줄 수 있게 도와주는 함수
   // Math.floor() 숫자의 소숫점을 버린다.
   console.log("정답", computer_n);
@@ -68,6 +67,7 @@ function reset() {
   // user input창이 깨끗하게 정리되고
   userInput.value = "";
   // 새로운 번호가 생성되고
+  play().reset
   pickRandomNum();
   playButton.disabled = false;
   resultArea.textContent = "Placeorder!!";
