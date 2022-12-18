@@ -68,10 +68,9 @@ function reset() {
   userInput.value = "";
   // 새로운 번호가 생성되고
   pickRandomNum();
-  play();
   playButton.disabled = false;
   resultArea.textContent = "Placeorder!!";
-  chances = 5;
+  chances.value = 5;
   history = [];
 }
 
