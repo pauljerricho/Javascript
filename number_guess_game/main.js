@@ -13,7 +13,7 @@ let playButton = document.getElementById("play-button");
 let userInput = document.getElementById("user_input");
 let resultArea = document.getElementById("Result_a");
 let resetButton = document.getElementById("reset-button");
-let chances = 5;
+var chances = 5;
 let gameOver = false;
 let Chance_a = document.getElementById("Chance_a");
 let history = [];
@@ -69,7 +69,7 @@ function reset() {
   // 새로운 번호가 생성되고
   pickRandomNum();
   playButton.disabled = false;
-  chances = 5;
+  let chances = 5;
   resultArea.textContent = "Placeorder!!";
 }
 
