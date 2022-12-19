@@ -67,10 +67,11 @@ function reset() {
   // user input창이 깨끗하게 정리되고
   userInput.value = "";
   // 새로운 번호가 생성되고
-  play().reset
   pickRandomNum();
   playButton.disabled = false;
   resultArea.textContent = "Placeorder!!";
+  chances = 5;
+  Chance_a.textContent = `Remains : ${chances}번`;
   history = [];
 }
 
