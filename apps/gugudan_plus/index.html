@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>구구단 PLUS</title>
+  <style>
+    :root { --fg:#111; --bg:#fff; --muted:#777; --accent:#3b82f6; }
+    @media (prefers-color-scheme: dark) {
+      :root { --fg:#eee; --bg:#0b0e12; --muted:#9aa; --accent:#60a5fa; }
+      body { background: var(--bg); color: var(--fg); }
+      input, select, button { color: var(--fg); background: #111723; border-color:#2a2f3a; }
+      table { border-color:#2a2f3a; }
+    }
+    body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, 'Noto Sans KR', sans-serif; margin: 24px; }
+    h1 { margin: 0 0 8px; font-weight: 800; letter-spacing: -0.02em; }
+    .muted { color: var(--muted); margin-bottom: 16px; }
+    .panel { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-bottom: 16px; }
+    label { display: grid; gap: 6px; font-size: 14px; }
+    input, select, button { padding: 10px 12px; border: 1px solid #d0d7de; border-radius: 10px; font-size: 14px; }
+    button.primary { background: var(--accent); color: white; border: none; }
+    button.ghost { background: transparent; border-color: #cbd5e1; }
+    table { width: 100%; border-collapse: collapse; border: 1px solid #e5e7eb; }
+    th, td { border: 1px solid #e5e7eb; padding: 8px 10px; text-align: right; }
+    th { background: #f8fafc; text-align: center; }
+    caption { text-align: left; margin-bottom: 8px; font-weight: 600; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; }
+    .card { border: 1px solid #e5e7eb; border-radius: 12px; padding: 12px; background: #fff; }
+    .row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .right { margin-left: auto; }
+    .hint { font-size: 12px; color: var(--muted); }
+    .error { color: #ef4444; font-weight: 600; }
+    .ok { color: #16a34a; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <h1>구구단 PLUS</h1>
+  <p class="muted">입력값 검증 · 범위 · 포맷 · 복사/다운로드까지 한 번에</p>
+
+  <section class="panel card">
+    <label>단 (2~19)
+      <input id="dan" type="number" value="2" min="2" max="19" />
+    </label>
+    <label>곱셈 범위
+      <div class="row">
+        <input id="from" type="number" value="1" min="0" max="99" title="시작" />
+        <input id="to" type="number" value="9" min="1" max="99" title="끝" />
+      </div>
+    </label>
+    <label>정렬
+      <select id="order">
+        <option value="asc">오름차순 (1→9)</option>
+        <option value="desc">내림차순 (9→1)</option>
+      </select>
+    </label>
+    <label>출력 포맷
+      <select id="fmt">
+        <option value="table">표 (table)</option>
+        <option value="grid">카드 (grid)</option>
+        <option value="text">텍스트</option>
+      </select>
+    </label>
+
+    <div class="row">
+      <button id="run" class="primary">생성</button>
+      <button id="copy" class="ghost">복사</button>
+      <button id="csv" class="ghost">CSV 다운로드</button>
+      <span id="msg" class="hint right"></span>
+    </div>
+  </section>
+
+  <section id="out"></section>
+
+  <script type="module" src="./gugudan_plus.js"></script>
+</body>
+</html>
